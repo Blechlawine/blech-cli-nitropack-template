@@ -2,7 +2,7 @@ import { z } from "zod";
 
 function defineZodRoute<TInput, TOutput, TResponse>(
     input: z.ZodType<TOutput, z.ZodTypeDef, TInput>,
-    resolver: (input: TOutput) => TResponse
+    resolver: (input: TOutput) => TResponse,
 ) {
     return defineEventHandler(async (event) => {
         const body = await readBody(event);
